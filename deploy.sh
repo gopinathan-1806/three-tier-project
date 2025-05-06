@@ -58,22 +58,16 @@ EOF
 
 # Build and tag the Docker image
 echo "Building Docker image..."
-docker build -t node-app:latest .
+docker build -t simple-app:latest .
 
-# Login to IBM Container Registry
-echo "Logging in to IBM Container Registry..."
-ibmcloud cr login
 
-# Create namespace if it doesn't exist
-if ! ibmcloud cr namespace-list | grep -q app-namespace; then
-  echo "Creating Container Registry namespace..."
-  ibmcloud cr namespace-add app-namespace
-fi
+echo "Logging in to Docker Registry..."
+docker login
 
 # Tag and push Docker image
 echo "Tagging and pushing Docker image..."
-docker tag node-app:latest us.icr.io/app-namespace/node-app:latest
-docker push us.icr.io/app-namespace/node-app:latest
+docker tag node-app:latest gopi1806/simple-app:latest
+docker push gopi1806/simple-app:latest
 
 # Initialize Terraform
 echo "Initializing Terraform..."
@@ -87,11 +81,4 @@ terraform apply -auto-approve
 APP_URL=$(terraform output -raw app_url 2>/dev/null || echo "URL not available yet")
 
 echo "Deployment completed!"
-echo "Application URL: $APP_URL"
-echo ""
-echo "To test the endpoints, visit:"
-echo "1. Index page: $APP_URL/"
-echo "2. Docker check: $APP_URL/docker"
-echo "3. Secret Word check: $APP_URL/secret_word"
-echo "4. Load Balancer check: $APP_URL/loadbalanced"
-echo "5. TLS check: $APP_URL/tls"
+
