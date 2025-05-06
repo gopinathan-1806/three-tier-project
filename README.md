@@ -80,8 +80,6 @@ This deployment creates:
 - IBM Container Registry namespace
 - Kubernetes deployment with 2 replicas
 - Load balancer service
-- TLS certificate (self-signed)
-- Ingress for TLS termination
 
 The application reads the secret word from the index page and sets it as an environment variable in the container.
 
@@ -93,7 +91,3 @@ To destroy all resources created by this project:
 terraform destroy -auto-approve
 ```
 
-## Notes
-
-- This project uses a self-signed TLS certificate for demonstration purposes. In a production environment, you would use a properly issued certificate from a trusted CA.
-- The SECRET_WORD is hardcoded in the Kubernetes deployment. In a real-world scenario, you would extract it dynamically from the index page.
