@@ -121,3 +121,6 @@ This project demonstrates how to deploy a simple Node.js web application on an I
 
 <img width="1037" alt="Screenshot 2025-05-06 at 11 29 58 PM" src="https://github.com/user-attachments/assets/1120a1cd-2df5-414f-b043-9c8ba2009f82" />
 
+7. URL for the application:
+http://688116a8-us-south.lb.test.appdomain.cloud/
+
