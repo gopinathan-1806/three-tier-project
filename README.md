@@ -19,7 +19,6 @@ This project demonstrates a containerized Node.js application deployment to IBM 
 ├── Dockerfile             # Container definition
 ├── main.tf                # Main Terraform configuration
 ├── variables.tf           # Terraform variables
-├── outputs.tf             # Terraform outputs
 ├── kubernetes.tf          # Kubernetes resources
 ├── deploy.sh              # Deployment script
 └── README.md              # This file
