@@ -25,17 +25,11 @@ variable "cr_namespace" {
 variable "app_name" {
   description = "Application name"
   type        = string
-  default     = "node-app"
+  default     = "gopi-cluster-testing"
 }
 
 variable "app_port" {
   description = "Application port"
   type        = number
   default     = 8080
-}
-
-variable "domain_name" {
-  description = "Domain name for the application"
-  type        = string
-  default     = "app.example.com"
 }
